@@ -5,7 +5,10 @@ import { fetchCategory, getNewsByCategoryId } from '@/app/lib/data';
 import React from 'react';
 
 
-
+export const metadata = {
+  title: "Dragon News | Home",
+  description: "The best web site of all International News",
+};
 
 const NewsCategory = async ({params}) => {
     const res = await params;

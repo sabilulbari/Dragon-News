@@ -4,16 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { FaRegBookmark, FaStar } from "react-icons/fa";
-import { IoShareSocialOutline } from "react-icons/io5";
-import { MdRemoveRedEye } from "react-icons/md";
+import { MdDescription } from "react-icons/md";
+
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params;
+
+  const newsDetailsId = await getNewsDetailsId(id);
+  const news = newsDetailsId.data[0];
+
+  return{
+    title: news.title,
+    MdDescription: news.details
+  }
+};
 
 const NewsDetails = async ({ params }) => {
   const res = await params;
   const id = res.id;
 
   const newsDetailsId = await getNewsDetailsId(id);
-  console.log(newsDetailsId.data[0]);
   const news = newsDetailsId.data[0];
 
   return (

@@ -1,5 +1,5 @@
 import RightSide from "@/app/components/sheared/rightSide/RightSide";
-import { getNewsDetailsId } from "@/app/lib/data";
+import { getNewsDetailsId } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -12,10 +12,10 @@ export const generateMetadata = async ({ params }) => {
   const newsDetailsId = await getNewsDetailsId(id);
   const news = newsDetailsId.data[0];
 
-  return{
+  return {
     title: news.title,
-    MdDescription: news.details
-  }
+    MdDescription: news.details,
+  };
 };
 
 const NewsDetails = async ({ params }) => {
